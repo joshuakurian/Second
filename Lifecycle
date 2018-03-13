@@ -1,0 +1,46 @@
+ActivityMain.xml
+----------------
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff8dc">
+    </RelativeLayout>
+    -----------------
+Main Activity
+-------------
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toast.makeText(this,"Application Created",Toast.LENGTH_SHORT).show();
+    }
+    public void onStart()
+    {
+        super.onStart();
+        Toast.makeText(this,"Application Started",Toast.LENGTH_SHORT).show();
+    }
+    public void onPause()
+    {
+        super.onPause();
+        Toast.makeText(this,"Application Paused",Toast.LENGTH_SHORT).show();
+    }
+    public void onResume()
+    {
+        super.onResume();
+        Toast.makeText(this,"Application Resumed",Toast.LENGTH_SHORT).show();
+    }
+    public void onStop()
+    {
+        super.onStop();
+        Toast.makeText(this,"Application Stoped",Toast.LENGTH_SHORT).show();
+    }
+    public void onDestroy()
+    {
+        super.onDestroy();
+        Toast.makeText(this,"Application Destroyed",Toast.LENGTH_SHORT).show();
+    }
+}
+
+

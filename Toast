@@ -1,0 +1,36 @@
+Image Toast
+-----------
+activity_main.xml
+-----------------
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mca.imagetoast.MainActivity">
+
+    <ImageView
+        android:id="@+id/mg1"
+        android:layout_width="372dp"
+        android:layout_height="378dp"
+        android:onClick="showToast"
+        android:src="@drawable/flight" />
+
+</android.support.constraint.ConstraintLayout>
+Mainactivity
+------------
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void showToast(View view) {
+        Toast.makeText(getApplicationContext(),"Flight Arrived",Toast.LENGTH_SHORT).show();
+    }
+}
+
+

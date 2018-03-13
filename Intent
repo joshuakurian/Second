@@ -1,0 +1,64 @@
+activity-main.xml
+-----------------
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This Is The First page"
+        android:textColor="#0000FF"
+        android:shadowColor="#FF5733"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="FORWARD"
+        android:textColor="#0000FF"
+        android:id="@+id/btn1"/>
+  Layout.xml
+  ----------
+  <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="BACKWARD"
+        android:textColor="#0000FF"
+        android:id="@+id/btn2"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="This Is The Second Page"
+        android:layout_marginLeft="100dp"
+        android:textColor="#00FF00"
+        android:shadowColor="#FF5733"
+       />
+  mainactivity.java
+  -----------------
+  protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button b=(Button) findViewById(R.id.btn1);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myintent=new Intent(MainActivity.this,SubActivity.class);
+                startActivity(myintent);
+            }
+        });
+
+    }
+ subactivity.java
+ ----------------
+  protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout);
+        Button c=(Button) findViewById(R.id.btn2);
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                Intent myintent1=new Intent(SubActivity.this,MainActivity.class);
+                startActivity(myintent1);
+            }
+        });
+    }

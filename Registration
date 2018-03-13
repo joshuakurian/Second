@@ -1,0 +1,184 @@
+activity-main.xml
+-----------------
+<LinearLayout
+        android:layout_width="306dp"
+        android:layout_height="fill_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="66dp"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Registration Form"
+                android:textColor="#f03526"
+                android:textStyle="bold"
+                android:textSize="22dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="16dp"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="80dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="Full Name" />
+
+            <EditText
+                android:id="@+id/txt1"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:hint="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="Gender" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/gender">
+
+                <RadioButton
+                    android:id="@+id/rd1"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/rd2"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Female" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:text="User Name" />
+
+            <EditText
+                android:id="@+id/txt2"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:hint="User Name" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:id="@+id/txt4"
+                android:text="Qualification"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ch1"
+                android:text="BCA"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ch2"
+                android:text="MCA"
+                />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ch3"
+                android:text="MTech"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="500dp"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:id="@+id/txt3"
+            />
+    </LinearLayout>
+    </LinearLayout>
+    
+  mainactivityjava
+  ----------------
+  public class MainActivity extends AppCompatActivity {
+Button b;
+TextView t1,t2,t3,t4,t5;
+RadioGroup r1;
+RadioButton r2;
+CheckBox ch1,ch2,ch3;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b=(Button)findViewById(R.id.btn1);
+        t1=(TextView)findViewById(R.id.txt1);
+        t2=(TextView)findViewById(R.id.txt2);
+        t3=(TextView)findViewById(R.id.txt3);
+        t4=(TextView)findViewById(R.id.txt4);
+        r1=(RadioGroup)findViewById(R.id.gender);
+        ch1=(CheckBox)findViewById(R.id.ch1);
+        ch2=(CheckBox)findViewById(R.id.ch2);
+        ch3=(CheckBox)findViewById(R.id.ch3);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            String s=t1.getText().toString();
+            int dig=r1.getCheckedRadioButtonId();
+            r2=(RadioButton)findViewById(dig);
+            String s1=r2.getText().toString();
+            String s3=t2.getText().toString();
+            t3.setText("Name Is " +s +"\n"+"Gender: "+s1+"\n"+"User Name: "+s3);
+            Toast toast=Toast.makeText(MainActivity.this,"Registration Sucesss",Toast.LENGTH_SHORT);
+            toast.show();
+            }
+        });
+}
+}
+  

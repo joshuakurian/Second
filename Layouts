@@ -1,0 +1,180 @@
+activitymain.xml
+----------------
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F08080">
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="Relative"
+        />
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="Grid Layout"
+        />
+</LinearLayout>
+
+activitygrid.xml
+----------------
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFB"
+        android:orientation="vertical">
+    <GridLayout
+        android:rowCount="3"
+        android:columnCount="2"
+        android:layout_width="300dp"
+        android:layout_height="400dp">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="FRUIT" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="COLOUR"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="APPLE"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="VIOLET"
+            android:textColor="#FF0000"/>
+        <TextView
+            android:layout_gravity="center"
+            android:text="ORANGE"/>
+        <TextView
+            android:layout_gravity="center"
+            android:text="ORANGE"
+            android:textColor="#FF8C00"/>
+
+    </GridLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Back Button"
+            android:id="@+id/btn3"/>
+    </LinearLayout>
+    
+    activityrelative.xml
+    --------------------
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:id="@+id/im1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:src="@drawable/flight" />
+
+            <ImageView
+                android:id="@+id/im2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="47dp"
+                android:layout_toEndOf="@+id/im4"
+                android:layout_toRightOf="@+id/im4"
+                android:src="@drawable/flight" />
+
+            <ImageView
+                android:id="@+id/im3"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignLeft="@+id/im5"
+                android:layout_alignStart="@+id/im5"
+                android:layout_alignTop="@+id/im4"
+                android:src="@drawable/flight" />
+
+            <ImageView
+                android:id="@+id/im4"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/im1"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/flight" />
+
+            <ImageView
+                android:id="@+id/im5"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="79dp"
+                android:layout_marginStart="79dp"
+                android:layout_toEndOf="@+id/im1"
+                android:layout_toRightOf="@+id/im1"
+                android:src="@drawable/flight" />
+        </RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn4"
+            android:text="Back Button"/>
+    </LinearLayout>
+    
+    mainactivity.java
+    -----------------
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button b1=(Button)findViewById(R.id.btn1);
+        Button b2=(Button)findViewById(R.id.btn2);
+        b1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent myintent=new Intent(MainActivity.this,Relative.class);
+                startActivity(myintent);
+            }
+        });
+      b2.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent nintent=new Intent(MainActivity.this,Grid.class);
+              startActivity(nintent);
+          }
+      });
+    }
+    grid.java
+    ---------
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_grid);
+        Button b3=(Button)findViewById(R.id.btn3);
+        b3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent myintent=new Intent(Grid.this,MainActivity.class);
+                startActivity(myintent);
+            }
+        });
+    }
+    relative.java
+    -------------
+     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_relative);
+        Button b4=(Button)findViewById(R.id.btn4);
+        b4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent myintent=new Intent(Relative.this,MainActivity.class);
+                startActivity(myintent);
+            }
+        });
+    }
